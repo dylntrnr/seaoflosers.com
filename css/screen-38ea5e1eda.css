@@ -8,3 +8,7 @@ body {
 img {
   width: 150px;
 }
+
+#myPublisherDiv {
+  padding: 10px;
+}

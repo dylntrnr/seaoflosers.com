@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-     In a sea of losers...  
+     In a sea of losers...
     </title>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
     rel="stylesheet">
-  
+
     <link href="css/screen-38ea5e1eda.css" rel="stylesheet">
 </head>
-  
+
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -81,6 +81,13 @@
       </div>
     </div>
     <div class="container">
+      <div class="row">
+        <div id="streamsContainer">
+          <div class="col-md-4">
+            <div id="myPublisherDiv"></div>
+          </div>
+        </div>
+      </div>
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
@@ -103,7 +110,7 @@
             rainbows, and other very pointless and dumb things.
           </p>
           <p>
-            Apparently I was much too nice to Nick the last time around. Well, not now. 
+            Apparently I was much too nice to Nick the last time around. Well, not now.
             So, Nick you are dumb. You are really lame. In fact, I am going to change your picture to
             be something much less flattering. I hope you lose all your games.
           </p>
@@ -175,6 +182,44 @@
     </script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
     >
+    </script>
+    <script src="http://static.opentok.com/webrtc/v2.0/js/TB.min.js" ></script>
+    <script type="text/javascript" charset="utf-8">
+      var apiKey = "24250552",
+          sessionId = "1_MX4yNDI1MDU1Mn4xMjcuMC4wLjF-V2VkIFNlcCAwNCAyMjoxMzowMyBQRFQgMjAxM34wLjE1NzExNjc3fg",
+          token = "T1==cGFydG5lcl9pZD0yNDI1MDU1MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz1mMWM2MjY3YWY0OGQ5YmRhMzA1NGUwZmU5NzlhNDc3ZTQ1YzFkNjU0OnJvbGU9cHVibGlzaGVyJnNlc3Npb25faWQ9MV9NWDR5TkRJMU1EVTFNbjR4TWpjdU1DNHdMakYtVjJWa0lGTmxjQ0F3TkNBeU1qb3hNem93TXlCUVJGUWdNakF4TTM0d0xqRTFOekV4TmpjM2ZnJmNyZWF0ZV90aW1lPTEzNzgzNTc5OTYmbm9uY2U9MC45ODc3NTU4NDQ0ODI3OTMyJmV4cGlyZV90aW1lPTEzODA5NDk5OTYmY29ubmVjdGlvbl9kYXRhPQ==";
+      function sessionConnectedHandler (event) {
+        session.publish( publisher );
+        subscribeToStreams(event.streams);
+      }
+      function subscribeToStreams(streams) {
+        for (var i = 0; i < streams.length; i++) {
+          var stream = streams[i];
+          if (stream.connection.connectionId != session.connection.connectionId) {
+           var div = document.createElement('div');
+           var containerDiv = document.createElement('div');
+           containerDiv.setAttribute('class', "col-md-4");
+           div.setAttribute('id', 'stream' + streams[i].streamId);
+           var streamsContainer = document.getElementById('streamsContainer');
+           streamsContainer.appendChild(containerDiv);
+           containerDiv.appendChild(div);
+           session.subscribe(stream, div);
+          }
+        }
+      }
+      function streamCreatedHandler(event) {
+        subscribeToStreams(event.streams);
+      }
+
+      var publisher = TB.initPublisher(apiKey, "myPublisherDiv");
+      var session   = TB.initSession(sessionId);
+
+      session.connect(apiKey, token);
+      session.addEventListener("sessionConnected",
+      sessionConnectedHandler);
+
+      session.addEventListener("streamCreated",
+      streamCreatedHandler);
     </script>
   </body>
 

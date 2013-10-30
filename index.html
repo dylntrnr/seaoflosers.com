@@ -74,13 +74,18 @@
         <p>
          After being kicked off, I seem to be in a sad and dark place. But I am starting to see that light.
         </p>
+        <iframe src="//player.vimeo.com/video/78133396" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/78133396">Fantasy Football - Week 9</a> from <a href="http://vimeo.com/patrickthompson">Patrick Thompson - Beta Movement</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
       </div>
     </div>
     <div class="container">
+      <div id="promptArrow"><span class="promptContainer"><span class="triangle"></span><span class="box"></span></span>
+          <p>Hit "Allow" to continue.</p>
+      </div>
       <div class="row">
         <div id="streamsContainer">
           <div class="col-md-4">
             <div id="myPublisherDiv"></div>
+            <p>The person in this video is a duche.<p>
           </div>
         </div>
       </div>
@@ -206,6 +211,7 @@
       }
       function streamCreatedHandler(event) {
         subscribeToStreams(event.streams);
+        $('#promptArrow').remove();
       }
 
       var publisher = TB.initPublisher(apiKey, "myPublisherDiv");

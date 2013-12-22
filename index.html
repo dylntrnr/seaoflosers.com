@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-      Movin on Up
+      The big day
     </title>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
     rel="stylesheet">
@@ -69,26 +69,15 @@
     <div class="jumbotron">
       <div class="container">
         <h1>
-          I hate Nick Sasich - seriously, I hate him
+          The wheat separated from the chaff
         </h1>
         <p>
-          Wacky kids movin on up
+          The big day is upon us. 
         </p>
-        <iframe src="//player.vimeo.com/video/78133396" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/78133396">Fantasy Football - Week 9</a> from <a href="http://vimeo.com/patrickthompson">Patrick Thompson - Beta Movement</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+        <iframe src="//player.vimeo.com/video/82509028?title=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/82509028">Get Manning Handled vs Chrylat Turmpsich - Trailer</a> from <a href="http://vimeo.com/patrickthompson">Patrick Thompson - Beta Movement</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
       </div>
     </div>
     <div class="container">
-      <div id="promptArrow"><span class="promptContainer"><span class="triangle"></span><span class="box"></span></span>
-          <p>Hit "Allow" to continue.</p>
-      </div>
-      <div class="row">
-        <div id="streamsContainer">
-          <div class="col-md-4">
-            <div id="myPublisherDiv"></div>
-            <p>The person in this video is a duche.<p>
-          </div>
-        </div>
-      </div>
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
@@ -183,46 +172,6 @@
     </script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
     >
-    </script>
-    <script src="http://static.opentok.com/webrtc/v2.0/js/TB.min.js" ></script>
-    <script type="text/javascript" charset="utf-8">
-      TB.setLogLevel(TB.DEBUG);
-      var apiKey = "24250552";
-      var sessionId = "1_MX4yNDI1MDU1Mn5-VHVlIE9jdCAyOSAyMjo1MDowNCBQRFQgMjAxM34wLjg3MzY3MTZ-";
-      var token = "T1==cGFydG5lcl9pZD0yNDI1MDU1MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz05YzQ4MTE4YWFjNDdhYjRkYmE4ZDc4YmJmNDg4NGNkMWVhYTgyY2U2OnJvbGU9cHVibGlzaGVyJnNlc3Npb25faWQ9MV9NWDR5TkRJMU1EVTFNbjUtVkhWbElFOWpkQ0F5T1NBeU1qbzFNRG93TkNCUVJGUWdNakF4TTM0d0xqZzNNelkzTVRaLSZjcmVhdGVfdGltZT0xMzgzMTEyMjA0Jm5vbmNlPTAuMDI1NTc2ODIyNzk2NDEwNjAzJmV4cGlyZV90aW1lPTEzODMxOTg2MDUmY29ubmVjdGlvbl9kYXRhPQ==";
-      function sessionConnectedHandler (event) {
-        session.publish( publisher );
-        subscribeToStreams(event.streams);
-      }
-      function subscribeToStreams(streams) {
-        for (var i = 0; i < streams.length; i++) {
-          var stream = streams[i];
-          if (stream.connection.connectionId != session.connection.connectionId) {
-           var div = document.createElement('div');
-           var containerDiv = document.createElement('div');
-           containerDiv.setAttribute('class', "col-md-4");
-           div.setAttribute('id', 'stream' + streams[i].streamId);
-           var streamsContainer = document.getElementById('streamsContainer');
-           streamsContainer.appendChild(containerDiv);
-           containerDiv.appendChild(div);
-           session.subscribe(stream, div);
-          }
-        }
-      }
-      function streamCreatedHandler(event) {
-        subscribeToStreams(event.streams);
-        $('#promptArrow').remove();
-      }
-
-      var publisher = TB.initPublisher(apiKey, "myPublisherDiv");
-      var session   = TB.initSession(sessionId);
-
-      session.connect(apiKey, token);
-      session.addEventListener("sessionConnected",
-      sessionConnectedHandler);
-
-      session.addEventListener("streamCreated",
-      streamCreatedHandler);
     </script>
   </body>
 
